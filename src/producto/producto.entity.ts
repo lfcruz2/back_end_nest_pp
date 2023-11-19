@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { ProductoTiendaEntity } from '../producto-tienda/producto-tienda.entity';
 
-@Entity()
+@Entity({ name: 'producto' })
 export class ProductoEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -12,7 +12,7 @@ export class ProductoEntity {
   @Column()
   descripcion: string;
 
-  @Column({ type: 'enum', enum: ['Perecedero', 'No perecedero'] })
+  @Column()
   categoria: string;
 
   @Column()

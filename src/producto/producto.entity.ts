@@ -3,6 +3,7 @@ import { ProductoTiendaEntity } from '../producto-tienda/producto-tienda.entity'
 
 @Entity({ name: 'producto' })
 export class ProductoEntity {
+  [x: string]: any;
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

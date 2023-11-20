@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsNumber, IsEnum } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
 
 export class ProductoDTO {
   @IsString()
@@ -9,7 +9,7 @@ export class ProductoDTO {
   @IsNotEmpty()
   readonly descripcion: string;
 
-  @IsEnum(['Perecedero', 'No perecedero'])
+  @IsString()
   @IsNotEmpty()
   readonly categoria: string;
 

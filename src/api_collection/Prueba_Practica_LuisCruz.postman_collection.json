@@ -407,6 +407,56 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Producto-Tienda",
+			"item": [
+				{
+					"name": "addStoreToProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cantidad\": 10,\r\n  \"productoId\": \"{{productoId}}\",\r\n  \"tiendaId\": \"{{tiendaId}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/producto-tienda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"producto-tienda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findStoresFromProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/producto-tienda/{{productoId}}/stores",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"producto-tienda",
+								"{{productoId}}",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

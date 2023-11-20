@@ -206,6 +206,207 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Tienda",
+			"item": [
+				{
+					"name": "AddTienda",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json();\r",
+									"pm.collectionVariables.set(\"tiendaId\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"c24339d9-3256-4206-8b14-f5affc9743d9\",\r\n  \"nombre\": \"Mi Tienda\",\r\n  \"ciudad\": \"SMR\",\r\n  \"direccion\": \"Calle Principal #123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tienda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllTiendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tienda",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOneTienda",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tienda/{{tiendaId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"{{tiendaId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetInvalidTienda",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tienda/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTienda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"c24339d9-3256-4206-8b14-f5affc9743d9\",\r\n  \"nombre\": \"Mi Tienda\",\r\n  \"ciudad\": \"SMX\",\r\n  \"direccion\": \"Calle Principal #123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tienda/{{tiendaId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"{{tiendaId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateInvalidTienda",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"c24339d9-3256-4206-8b14-f5affc9743d9\",\r\n  \"nombre\": \"Mi Tienda\",\r\n  \"ciudad\": \"SMY\",\r\n  \"direccion\": \"Calle Principal #123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/tienda/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTienda",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tienda/{{tiendaId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"{{tiendaId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteInvalidTienda",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/tienda/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"tienda",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -237,6 +438,11 @@
 		{
 			"key": "productoId",
 			"value": "-----------automatic-----------"
+		},
+		{
+			"key": "tiendaId",
+			"value": "-----------automatic-----------",
+			"type": "string"
 		}
 	]
 }
